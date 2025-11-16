@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, red, blue, purple, cyan, green);
+            background-size: 600% 600%;
+            animation: rgb 10s infinite alternate;
+            font-family: Arial, sans-serif;
+        }
+
+        @keyframes rgb {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .container {
+            position: relative;
+            text-align: center;
+        }
+
+        .texto {
+            position: absolute;
+            top: -40px;
+            width: 100%;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-shadow: 0px 0px 10px black;
+            animation: flutuar 3s infinite ease-in-out;
+        }
+
+        @keyframes flutuar {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        img {
+            width: 80%;
+            max-width: 380px;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="texto">oi meu lindo.. pegue seu qr code😏</div>
+
+        <img src="data:image/png;base64,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" />
+    </div>
+</body>
+</html>
